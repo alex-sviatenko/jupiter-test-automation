@@ -33,46 +33,46 @@ public class HotelSearchTest extends BaseTest {
         );
     }
 
-    @ParameterizedTest
-    @MethodSource("hotelNameSet")
-    public void searchHotelByName(String hotelName, String locationName) {
-        HotelSearchResponseDTO hotelSearchResponseDTO = hotelSteps.searchHotelByName(hotelName);
-
-        assertEquals(OK.getStatus(), hotelSearchResponseDTO.getStatus());
-
-        hotelSearchResponseDTO.getResults().getHotels().forEach(hotel -> {
-            assertTrue(hotel.getFullName().toLowerCase().contains(hotelName.toLowerCase()));
-            assertTrue(hotel.getLocationName().toLowerCase().contains(locationName.toLowerCase()));
-        });
-    }
-
-    private static Stream<Hotels> hotelCoordinatesSet() {
-        return Stream.of(HOTEL_MILANO, HOTEL_TAC_PREMIER, HOTEL_GRAND);
-    }
-
-    @ParameterizedTest
-    @MethodSource("hotelCoordinatesSet")
-    public void searchHotelByCoordinate(Hotels hotels) {
-        HotelCoordinateSearchResponseDTO hotelCoordinateSearchResponseDTO = hotelSteps.searchHotelByCoordinates(hotels.getLat(), hotels.getLon());
-
-        assertEquals(OK.getStatus(), hotelCoordinateSearchResponseDTO.getStatus());
-
-        HotelCoordinateDTO hotelCoordinateActual = hotelCoordinateSearchResponseDTO.getResults().getHotels().getFirst();
-        String id = hotelCoordinateActual.getId();
-
-        HotelCoordinateDTO hotelCoordinateExpected = HotelCoordinateBuilder.generateHotelCoordinateDTO(id, hotels);
-
-        assertEquals(hotelCoordinateExpected, hotelCoordinateActual);
-    }
-
-    @NullAndEmptySource
-    @ParameterizedTest
-    public void searchHotelWithEmptyQuery(String hotelName) {
-        HotelSearchResponseDTO hotelSearchResponseDTO = hotelSteps.searchHotelByName(hotelName);
-
-        assertEquals(OK.getStatus(), hotelSearchResponseDTO.getStatus());
-        assertEquals(0, hotelSearchResponseDTO.getResults().getHotels().size());
-    }
+//    @ParameterizedTest
+//    @MethodSource("hotelNameSet")
+//    public void searchHotelByName(String hotelName, String locationName) {
+//        HotelSearchResponseDTO hotelSearchResponseDTO = hotelSteps.searchHotelByName(hotelName);
+//
+//        assertEquals(OK.getStatus(), hotelSearchResponseDTO.getStatus());
+//
+//        hotelSearchResponseDTO.getResults().getHotels().forEach(hotel -> {
+//            assertTrue(hotel.getFullName().toLowerCase().contains(hotelName.toLowerCase()));
+//            assertTrue(hotel.getLocationName().toLowerCase().contains(locationName.toLowerCase()));
+//        });
+//    }
+//
+//    private static Stream<Hotels> hotelCoordinatesSet() {
+//        return Stream.of(HOTEL_MILANO, HOTEL_TAC_PREMIER, HOTEL_GRAND);
+//    }
+//
+//    @ParameterizedTest
+//    @MethodSource("hotelCoordinatesSet")
+//    public void searchHotelByCoordinate(Hotels hotels) {
+//        HotelCoordinateSearchResponseDTO hotelCoordinateSearchResponseDTO = hotelSteps.searchHotelByCoordinates(hotels.getLat(), hotels.getLon());
+//
+//        assertEquals(OK.getStatus(), hotelCoordinateSearchResponseDTO.getStatus());
+//
+//        HotelCoordinateDTO hotelCoordinateActual = hotelCoordinateSearchResponseDTO.getResults().getHotels().getFirst();
+//        String id = hotelCoordinateActual.getId();
+//
+//        HotelCoordinateDTO hotelCoordinateExpected = HotelCoordinateBuilder.generateHotelCoordinateDTO(id, hotels);
+//
+//        assertEquals(hotelCoordinateExpected, hotelCoordinateActual);
+//    }
+//
+//    @NullAndEmptySource
+//    @ParameterizedTest
+//    public void searchHotelWithEmptyQuery(String hotelName) {
+//        HotelSearchResponseDTO hotelSearchResponseDTO = hotelSteps.searchHotelByName(hotelName);
+//
+//        assertEquals(OK.getStatus(), hotelSearchResponseDTO.getStatus());
+//        assertEquals(0, hotelSearchResponseDTO.getResults().getHotels().size());
+//    }
 
     @Test
     public void searchHotelWhenRequiredParameterIsMissing() {

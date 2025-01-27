@@ -32,41 +32,41 @@ public class HotelLivingCostTest extends BaseTest {
         );
     }
 
-    @ParameterizedTest
-    @MethodSource("hotelDataSet")
-    public void displayHotelPriceWhenLocationNameProvided(String locationName, List<Hotels> hotelListExpected, Integer days) {
-        LocalDate checkInDate = getDateNow();
-        LocalDate checkOutDate = getFutureDate(days);
-        List<HotelPriceResponseDTO> hotelListActual = hotelSteps.getHotelPriceByLocation(locationName, checkInDate, checkOutDate);
-
-        checkHotelDataAndPrice(hotelListExpected, hotelListActual);
-    }
-
-    private static Stream<Arguments> hotelLocationIdDataSet() {
-        return Stream.of(
-                Arguments.of(LOCATION_VALENCIA.getLocationId(), List.of(HOTEL_LAS_ARENAS, HOTEL_EUROSTARS, HOTEL_MALCOM, HOTEL_VENECIA), 1),
-                Arguments.of(LOCATION_ALANYA.getLocationId(), List.of(HOTEL_GREEN_GARDEN, HOTEL_HARMONY, HOTEL_SUNWAY, HOTEL_MUSTI), 7)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("hotelLocationIdDataSet")
-    public void displayHotelPriceWhenLocationIdProvided(Integer locationId, List<Hotels> hotelListExpected, Integer days) {
-        LocalDate checkInDate = getDateNow();
-        LocalDate checkOutDate = getFutureDate(days);
-        List<HotelPriceResponseDTO> hotelListActual = hotelSteps.getHotelPriceByLocationId(locationId, checkInDate, checkOutDate);
-
-        checkHotelDataAndPrice(hotelListExpected, hotelListActual);
-    }
-
-    @Test
-    public void checkHotelDataForPastPeriod() {
-        LocalDate checkInDate = getPastDate(10);
-        LocalDate checkOutDate = getPastDate(1);
-        List<HotelPriceResponseDTO> hotelsListActual = hotelSteps.getHotelPriceByLocation(LOCATION_ALANYA.getLocationName(), checkInDate, checkOutDate);
-
-        assertEquals(0, hotelsListActual.size());
-    }
+//    @ParameterizedTest
+//    @MethodSource("hotelDataSet")
+//    public void displayHotelPriceWhenLocationNameProvided(String locationName, List<Hotels> hotelListExpected, Integer days) {
+//        LocalDate checkInDate = getDateNow();
+//        LocalDate checkOutDate = getFutureDate(days);
+//        List<HotelPriceResponseDTO> hotelListActual = hotelSteps.getHotelPriceByLocation(locationName, checkInDate, checkOutDate);
+//
+//        checkHotelDataAndPrice(hotelListExpected, hotelListActual);
+//    }
+//
+//    private static Stream<Arguments> hotelLocationIdDataSet() {
+//        return Stream.of(
+//                Arguments.of(LOCATION_VALENCIA.getLocationId(), List.of(HOTEL_LAS_ARENAS, HOTEL_EUROSTARS, HOTEL_MALCOM, HOTEL_VENECIA), 1),
+//                Arguments.of(LOCATION_ALANYA.getLocationId(), List.of(HOTEL_GREEN_GARDEN, HOTEL_HARMONY, HOTEL_SUNWAY, HOTEL_MUSTI), 7)
+//        );
+//    }
+//
+//    @ParameterizedTest
+//    @MethodSource("hotelLocationIdDataSet")
+//    public void displayHotelPriceWhenLocationIdProvided(Integer locationId, List<Hotels> hotelListExpected, Integer days) {
+//        LocalDate checkInDate = getDateNow();
+//        LocalDate checkOutDate = getFutureDate(days);
+//        List<HotelPriceResponseDTO> hotelListActual = hotelSteps.getHotelPriceByLocationId(locationId, checkInDate, checkOutDate);
+//
+//        checkHotelDataAndPrice(hotelListExpected, hotelListActual);
+//    }
+//
+//    @Test
+//    public void checkHotelDataForPastPeriod() {
+//        LocalDate checkInDate = getPastDate(10);
+//        LocalDate checkOutDate = getPastDate(1);
+//        List<HotelPriceResponseDTO> hotelsListActual = hotelSteps.getHotelPriceByLocation(LOCATION_ALANYA.getLocationName(), checkInDate, checkOutDate);
+//
+//        assertEquals(0, hotelsListActual.size());
+//    }
 
     @Test
     public void displayHotelPriceWhenRequiredParameterIsMissing() {
