@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2865","displayHotelPriceWhenRequiredParameterIsMissing()","","Tue Jan 28 14:15:46 GMT 2025","passed","Tue Jan 28 14:15:49 GMT 2025","","com.jupiter.api.hotel.HotelLivingCostTest","com.jupiter.api.hotel.HotelLivingCostTest","displayHotelPriceWhenRequiredParameterIsMissing"
+"","2870","userLoggedInSuccessfully()","","Tue Jan 28 14:15:46 GMT 2025","passed","Tue Jan 28 14:15:49 GMT 2025","","com.jupiter.api.reqres.ReqresTest","com.jupiter.api.reqres.ReqresTest","userLoggedInSuccessfully"
+"","2867","searchHotelWhenRequiredParameterIsMissing()","","Tue Jan 28 14:15:46 GMT 2025","passed","Tue Jan 28 14:15:49 GMT 2025","","com.jupiter.api.hotel.HotelSearchTest","com.jupiter.api.hotel.HotelSearchTest","searchHotelWhenRequiredParameterIsMissing"
