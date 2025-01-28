@@ -32,6 +32,11 @@ public class ReqresTest extends BaseTest {
     }
 
     @Test
+    public void checkFailing() {
+        assertFalse(true);
+    }
+
+    @Test
     public void userLoginWithoutPassword() {
         UserLoginRequestDTO userLoginRequestDTO = new UserLoginRequestDTO("peter@klaven", "");
         HttpResponseWrapper userLoginResponse = reqresController.sendUserLogin(userLoginRequestDTO, SC_BAD_REQUEST);
