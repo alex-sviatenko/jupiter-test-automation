@@ -23,6 +23,7 @@ public enum Hotels {
     HOTEL_GREEN_GARDEN("Green Garden Suites Hotel", LOCATION_ALANYA.getLocationName(), LOCATION_ALANYA.getLocationId(), 36.545233, 31.992696),
     HOTEL_HARMONY("Harmony Butik Otel", LOCATION_ALANYA.getLocationName(), LOCATION_ALANYA.getLocationId(), 36.545233, 31.992696),
     HOTEL_SUNWAY("Sunway Apart Hotel", LOCATION_ALANYA.getLocationName(), LOCATION_ALANYA.getLocationId(), 36.545233, 31.992696),
+    HOTEL_BLUE_HEAVEN("Blue Heaven Apart Hotel", LOCATION_ALANYA.getLocationName(), LOCATION_ALANYA.getLocationId(), 36.545235, 31.992697),
     HOTEL_MUSTI("Musti Apart Hotel", LOCATION_ALANYA.getLocationName(), LOCATION_ALANYA.getLocationId(), 36.545233, 31.992696),
     HOTEL_TAC_PREMIER("Tac Premier Hotel & Spa", LOCATION_ALANYA.getLocationName(), LOCATION_ALANYA.getLocationId(), 36.54899, 31.98159);
 

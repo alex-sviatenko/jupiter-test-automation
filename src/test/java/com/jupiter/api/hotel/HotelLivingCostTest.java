@@ -21,6 +21,7 @@ import static com.jupiter.service.hotel.enums.Locations.LOCATION_ALANYA;
 import static com.jupiter.service.hotel.enums.Locations.LOCATION_VALENCIA;
 import static com.jupiter.service.hotel.enums.RequestStatus.ERROR;
 import static com.jupiter.utils.DateTimeUtils.*;
+import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HotelLivingCostTest extends BaseTest {
@@ -28,7 +29,7 @@ public class HotelLivingCostTest extends BaseTest {
     private static Stream<Arguments> hotelDataSet() {
         return Stream.of(
                 Arguments.of(LOCATION_VALENCIA.getName(), List.of(HOTEL_LAS_ARENAS, HOTEL_EUROSTARS, HOTEL_MALCOM, HOTEL_VENECIA), 1),
-                Arguments.of(LOCATION_ALANYA.getName(), List.of(HOTEL_GREEN_GARDEN, HOTEL_HARMONY, HOTEL_SUNWAY, HOTEL_MUSTI), 14)
+                Arguments.of(LOCATION_ALANYA.getName(), List.of(HOTEL_GREEN_GARDEN, HOTEL_HARMONY, HOTEL_SUNWAY, HOTEL_BLUE_HEAVEN), 14)
         );
     }
 
@@ -86,7 +87,7 @@ public class HotelLivingCostTest extends BaseTest {
                     .filter(hotel -> hotel.getHotelName().equals(hotelExpected.getHotelName()))
                     .findFirst();
 
-            assertNotNull(hotelOpt.get());
+            assertTrue(hotelOpt.isPresent(), format("Hotel name = '%s' is not found", hotelExpected.getHotelName()));
 
             HotelPriceResponseDTO hotelActual = hotelOpt.get();
 
