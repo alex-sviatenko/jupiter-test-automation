@@ -1,4 +1,4 @@
-name: Jupiter Automated Tests
+name: REST Assured Automated Tests
 
 on: [ push ]
 #on:
@@ -15,7 +15,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Run JUPITER Automated Tests
+    name: Run REST Assured Automated Tests
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
           java-version: '21'
       - name: Check Java version
         run: java -version
-      - name: Run Automates Tests
+      - name: Run Automated Tests
         run: ./mvnw clean test
         continue-on-error: true
       - name: Check Allure Results Directory

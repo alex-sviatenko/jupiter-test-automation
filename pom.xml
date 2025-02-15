@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jupiter</groupId>
-    <artifactId>jupiter-test-automation</artifactId>
+    <artifactId>rest-assured-test-automation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jupiter-test-automation</name>
-    <description>demo test automation project</description>
+    <name>rest-assured-test-automation</name>
+    <description>rest-assured test automation framework</description>
 
     <properties>
         <java.version>21</java.version>
